@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Main = (props) => {
-  Main.propTypes = {
-    films: PropTypes.array.required,
-  };
 
   const filmsList = props.films.map((filmTitle, index) =>
     <article className="small-movie-card catalog__movies-card" key={index}>
@@ -12,7 +9,7 @@ const Main = (props) => {
       <div className="small-movie-card__image">
         <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={filmTitle} width="280" height="175" />
       </div>
-      <h3 className="small-movie-card__title">
+      <h3 className="small-movie-card__title" onClick={props.onclick}>
         <a className="small-movie-card__link" href="movie-page.html">{filmTitle}</a>
       </h3>
     </article>
@@ -299,6 +296,11 @@ const Main = (props) => {
       </footer>
     </div>
   </div>;
+};
+
+Main.propTypes = {
+  films: PropTypes.array.required,
+  onclick: PropTypes.func,
 };
 
 export default Main;
