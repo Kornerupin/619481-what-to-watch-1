@@ -10,13 +10,12 @@ it(`Testing button click`, () => {
   const clickHandler = jest.fn();
   const main = shallow(
       <Main
-        films={FILMS}
-        onclick={clickHandler}
+        films = {FILMS}
+        onclick = {clickHandler}
       />
   );
 
-  const mainButton = main.findAll(`.small-movie-card__title`);
-  mainButton[0].simulate(`click`);
+  main.find(`.small-movie-card__title`).at(0).simulate(`click`);
 
   expect(clickHandler).toHaveBeenCalledTimes(1);
 });

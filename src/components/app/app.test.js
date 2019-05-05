@@ -8,8 +8,8 @@ it(`Testing someone`, () => {
   const FILMS = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Aviator`];
   const tree = renderer.create(
       <App
-        films={FILMS}
-        onclick={clickHandler}
+        films = {FILMS}
+        onclick = {clickHandler}
       />
   ).toJSON();
   expect(tree).toMatchSnapshot();
