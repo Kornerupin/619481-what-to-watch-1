@@ -12,7 +12,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  films: PropTypes.array.required,
+  films: PropTypes.array.isRequired,
 };
 
 export default App;
