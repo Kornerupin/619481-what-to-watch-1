@@ -299,7 +299,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  films: PropTypes.array.required,
+  films: PropTypes.array.isRequired,
   onclick: PropTypes.func,
 };
 
