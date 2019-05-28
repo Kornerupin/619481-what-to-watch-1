@@ -1,23 +1,37 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import FilmCard from "../film-card/film-card";
 
-const FilmsList = (props) => {
-  let filmsList = [];
-  let index = 0;
+class FilmsList extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  for (let film of props.films) {
-    if (Object.keys(film).length !== 0) {
-      filmsList.push(<FilmCard
-        film = {film}
-        index = {index++}
-        onCardOver = {props.onCardOver}
-      />);
-    }
+    this.state = {
+      activeCard: {},
+      activeCardKey: -1,
+    };
   }
 
-  return filmsList;
-};
+  render() {
+    let filmsList = this.props.films.map((film, key) =>
+      <FilmCard
+        film = {film}
+        index = {key}
+        onCardOver = {(data, activeCardIndex) => {
+          this.setState({
+            activeCard: data,
+            activeCardKey: activeCardIndex,
+          });
+        }}
+        key = {key}
+      />
+    );
+
+    return <div className="catalog__movies-list">
+      {filmsList}
+    </div>;
+  }
+}
 
 FilmsList.propTypes = {
   films: PropTypes.array.isRequired,

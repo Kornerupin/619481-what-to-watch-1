@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 
 const FilmCard = (props) => {
   const film = props.film;
-  const index = props.index;
 
-  return <article className="small-movie-card catalog__movies-card" key={index} data-index={index} onMouseOver={() => props.onCardOver(index)}>
+  return <article className="small-movie-card catalog__movies-card" onMouseOver={() => props.onCardOver(film, props.index)}>
     <button className="small-movie-card__play-btn" type="button">Play</button>
     <div className="small-movie-card__image">
       <img src={film.img} alt={film.title} width="280" height="175" />
