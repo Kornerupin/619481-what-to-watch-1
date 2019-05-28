@@ -5,7 +5,7 @@ const FilmCard = (props) => {
   const film = props.film;
   const index = props.index;
 
-  return <article className="small-movie-card catalog__movies-card" key={index}>
+  return <article className="small-movie-card catalog__movies-card" key={index} data-index={index} onMouseOver={() => props.onCardOver(index)}>
     <button className="small-movie-card__play-btn" type="button">Play</button>
     <div className="small-movie-card__image">
       <img src={film.img} alt={film.title} width="280" height="175" />
@@ -20,6 +20,7 @@ FilmCard.propTypes = {
   film: PropTypes.object.isRequired,
   // film: PropTypes.object({title: PropTypes.string.isRequired, img: PropTypes.string.isRequired, src: PropTypes.string.isRequired}).isRequired,
   index: PropTypes.number.isRequired,
+  onCardOver: PropTypes.func,
 };
 
 export default FilmCard;

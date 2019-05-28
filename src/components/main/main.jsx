@@ -6,6 +6,7 @@ const Main = (props) => {
 
   const filmsList = <FilmsList
     films = {props.films}
+    onCardOver = {props.onCardOver}
   />;
 
   return <div>
@@ -129,7 +130,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   films: PropTypes.array.isRequired,
-  onclick: PropTypes.func,
+  onCardOver: PropTypes.func,
 };
 
 export default Main;
