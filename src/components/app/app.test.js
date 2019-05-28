@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import App from "./app";
 
-import {FILMS} from "./mocks/films";
+import {FILMS} from "./../../mocks/films";
 
 it(`Testing someone`, () => {
 
